@@ -1,0 +1,113 @@
+<div class="row mt-2 mb-2">
+  <div class="col-md-8">
+    <h4>Contacts List</h4>
+  </div>
+  <div class="col-md-4 text-right">
+    <button class="btn btn-outline-primary" (click)="open(addContact, 'lg', 'Add New Contact')"><i class="fa fa-plus"></i>&nbsp;Add New Contact</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            #
+          </th>
+          <th>
+            First Name
+          </th>
+          <th>
+            Last Name
+          </th>
+          <th>
+            City
+          </th>
+          <th>
+            Email
+          </th>
+          <th>
+            Phone
+          </th>
+          <th>
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of contactModelList">
+          <td>{{ item.id }}</td>
+          <td>{{ item.firstName || 'N/A' }}</td>
+          <td>{{ item.lastName || 'N/A' }}</td>
+          <td>{{ item.city || 'N/A' }}</td>
+          <td>{{ item.email || 'N/A' }}</td>
+          <td>{{ item.phone || 'N/A' }}</td>
+          <td>{{ item.status ? 'Active' : 'Inactive' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Modal : Add New Contact -->
+<ng-template #addContact let-modal>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ this.modalTitle }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>      
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" class="form-control" aria-describedby="txtFirstNameDesc" formControlName="firstName" [ngClass]="{ 'is-invalid': isFormSubmit && f.firstName.errors }">
+              <small id="txtFirstNameDesc" class="form-text text-muted">Enter first name.</small>
+              <div *ngIf="isFormSubmit && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">First name is required !</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" class="form-control" aria-describedby="txtLastNameDesc" formControlName="lastName" [ngClass]="{ 'is-invalid': isFormSubmit && f.lastName.errors }">
+              <small id="txtLastNameDesc" class="form-text text-muted">Enter last name.</small>
+              <div *ngIf="isFormSubmit && f.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="f.lastName.errors.required">Last name is required !</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" class="form-control" aria-describedby="txtCityDesc" formControlName="city" [ngClass]="{ 'is-invalid': isFormSubmit && f.city.errors }">
+              <small id="txtCityDesc" class="form-text text-muted">Enter city name.</small>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" class="form-control" aria-describedby="txtEmailDesc" formControlName="email" [ngClass]="{ 'is-invalid': isFormSubmit && f.email.errors }">
+              <small id="txtEmailDesc" class="form-text text-muted">Enter email id.</small>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="text" class="form-control" aria-describedby="txtPhoneDesc" formControlName="phone" [ngClass]="{ 'is-invalid': isFormSubmit && f.phone.errors }">
+              <small id="txtPhoneDesc" class="form-text text-muted">Enter phone number.</small>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="status" [ngClass]="{ 'is-invalid': isFormSubmit && f.status.errors }">
+              <label class="form-check-label" for="exampleCheck1">Active/InActive</label>
+            </div>
+          </div>
+        </div>
+     
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</form>
+</ng-template>

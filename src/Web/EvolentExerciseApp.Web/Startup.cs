@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace ContactManagerApp.Web
 {
@@ -29,6 +30,13 @@ namespace ContactManagerApp.Web
             //===|| AddMvc
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            //===|| AddApiVersioning
+            services.AddApiVersioning(o => {
+                o.ReportApiVersions = true;
+                o.AssumeDefaultVersionWhenUnspecified = true;
+                o.DefaultApiVersion = new ApiVersion(1, 0);
+            });
+
             //===|| AddSpaStaticFiles
             services.AddSpaStaticFiles(configuration =>
             {
@@ -37,6 +45,7 @@ namespace ContactManagerApp.Web
 
             //===|| 
             services.AddScoped<IContactRepository<Contact>, ContactRepository<Contact>>();
+            services.AddLogging();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

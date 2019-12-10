@@ -1,29 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import {  ListContactComponent } from './pages/contact/list-contact/list-contact.component';
-import {  AddContactComponent } from './pages/contact/add-contact/add-contact.component';
+import { ContactService } from './libraries/services/contact/contact.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListContactComponent,
-    AddContactComponent
+    ContactComponent    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: ListContactComponent, pathMatch: 'full' },
-      { path: 'add', component: AddContactComponent },      
-    ])
+      { path: '', component: ContactComponent, pathMatch: 'full' },   
+      { path: 'contact', component: ContactComponent },      
+    ]),
+    NgbModule
   ],
-  providers: [],
+  providers: [ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

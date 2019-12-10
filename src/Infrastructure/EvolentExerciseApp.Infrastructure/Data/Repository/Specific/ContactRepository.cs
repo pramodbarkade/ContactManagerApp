@@ -12,8 +12,8 @@ namespace ContactManagerApp.Infrastructure.Data.Repository.Specific
 {
     public class ContactRepository<T> : EfRepository<Contact>, IContactRepository<Contact>
     {
-        private ILogger _logger;
-        public ContactRepository(AppDbContext dbContext, ILogger logger) : base(dbContext)
+        private ILogger<ContactRepository<T>> _logger;
+        public ContactRepository(AppDbContext dbContext, ILogger<ContactRepository<T>> logger) : base(dbContext)
         {
             _logger = logger;
         }

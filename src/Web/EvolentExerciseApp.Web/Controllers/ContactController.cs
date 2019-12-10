@@ -8,16 +8,17 @@ using Microsoft.Extensions.Logging;
 
 namespace ContactManagerApp.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v.{version:apiVersion}.0/[controller]")]
     public class ContactController : Controller
     {
         //===||
         private IContactRepository<Contact> _contact;
-        private ILogger _logger;
+        private ILogger<ContactController> _logger;
         private ApiResponse apiResponse;
 
         //===|| 
-        public ContactController(IContactRepository<Contact> contact, ILogger logger)
+        public ContactController(IContactRepository<Contact> contact, ILogger<ContactController> logger)
         {
             _contact = contact;
             _logger = logger;
