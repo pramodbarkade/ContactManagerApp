@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{90188544-27C2-4BF5-92C8-DEE4C581D0DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9B8D485E-0BE2-498D-A81F-8CCD6860A0CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{325D1895-D709-4D5E-8E3A-DC6BBAF1EE9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0950518C-84C8-4055-BDD1-B502B5706EA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9DF91145-460A-456B-ADC2-4491DA53057C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{80494455-3A71-4EF9-B8A4-CCC3DAA04CDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManagerApp.Web", "src\Web\EvolentExerciseApp.Web\ContactManagerApp.Web.csproj", "{D2E4FFF4-4EF0-4555-96B2-ADD3C2922EF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManagerApp.Infrastructure", "src\Infrastructure\EvolentExerciseApp.Infrastructure\ContactManagerApp.Infrastructure.csproj", "{97BA8429-1A84-4FBE-A01B-83C1D6F32C1D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManagerApp.Core", "src\Core\EvolentExerciseApp.Core\ContactManagerApp.Core.csproj", "{054916B6-C128-47B4-BD3D-3C50054685E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2E4FFF4-4EF0-4555-96B2-ADD3C2922EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2E4FFF4-4EF0-4555-96B2-ADD3C2922EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2E4FFF4-4EF0-4555-96B2-ADD3C2922EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2E4FFF4-4EF0-4555-96B2-ADD3C2922EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97BA8429-1A84-4FBE-A01B-83C1D6F32C1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97BA8429-1A84-4FBE-A01B-83C1D6F32C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97BA8429-1A84-4FBE-A01B-83C1D6F32C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97BA8429-1A84-4FBE-A01B-83C1D6F32C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{054916B6-C128-47B4-BD3D-3C50054685E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{054916B6-C128-47B4-BD3D-3C50054685E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{054916B6-C128-47B4-BD3D-3C50054685E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{054916B6-C128-47B4-BD3D-3C50054685E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0950518C-84C8-4055-BDD1-B502B5706EA6} = {90188544-27C2-4BF5-92C8-DEE4C581D0DC}
+		{9DF91145-460A-456B-ADC2-4491DA53057C} = {90188544-27C2-4BF5-92C8-DEE4C581D0DC}
+		{80494455-3A71-4EF9-B8A4-CCC3DAA04CDB} = {90188544-27C2-4BF5-92C8-DEE4C581D0DC}
+		{D2E4FFF4-4EF0-4555-96B2-ADD3C2922EF6} = {80494455-3A71-4EF9-B8A4-CCC3DAA04CDB}
+		{97BA8429-1A84-4FBE-A01B-83C1D6F32C1D} = {9DF91145-460A-456B-ADC2-4491DA53057C}
+		{054916B6-C128-47B4-BD3D-3C50054685E9} = {0950518C-84C8-4055-BDD1-B502B5706EA6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C32B2A1D-FDEF-46F3-A750-8259E286BA92}
+	EndGlobalSection
+EndGlobal
