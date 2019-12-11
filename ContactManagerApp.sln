@@ -21,6 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManagerApp.Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManagerApp.Core", "src\Core\EvolentExerciseApp.Core\ContactManagerApp.Core.csproj", "{054916B6-C128-47B4-BD3D-3C50054685E9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{D354765A-622B-4A6B-8F64-4E80F99A4816}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Pramod\Desktop\ContactManagerAppDb.sql = C:\Users\Pramod\Desktop\ContactManagerAppDb.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

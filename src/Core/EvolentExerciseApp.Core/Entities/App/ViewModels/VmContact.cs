@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace ContactManagerApp.Core.Entities.App
+namespace ContactManagerApp.Core.Entities.App.ViewModels
 {
-    public class Contact : BaseEntity
-    {
-        [Key]
+    public class VmContact
+    {        
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,7 +15,5 @@ namespace ContactManagerApp.Core.Entities.App
         public string Email { get; set; }
         public string Phone { get; set; }
         public bool Status { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime? ModifyDate { get; set; }
     }
 }

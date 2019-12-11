@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using ContactManagerApp.Core.Entities.App;
+using ContactManagerApp.Core.Entities.App.ViewModels;
 using ContactManagerApp.Core.Entities.Common;
 using ContactManagerApp.Core.Interfaces.Specific;
 using Microsoft.AspNetCore.Mvc;
@@ -24,9 +25,9 @@ namespace ContactManagerApp.Web.Controllers
             _logger = logger;
         }
 
-        //===|| GetList
+        //===|| List
         [HttpGet("[action]")]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> List(VmContact vmContact)
         {            
             try
             {
@@ -43,6 +44,107 @@ namespace ContactManagerApp.Web.Controllers
 
             }           
             return Ok(apiResponse);
-        }       
+        }
+
+        //===|| View
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> View(int Id)
+        {
+            try
+            {
+                var contact = await _contact.View(Id);
+                apiResponse = new ApiResponse(true, ApiMessage.Success, contact);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                apiResponse = new ApiResponse(false, ApiMessage.Error, null);
+            }
+            finally
+            {
+
+            }
+            return Ok(apiResponse);
+        }
+
+        //===|| Create
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Create([FromBody]VmContact _vmContact)
+        {
+            try
+            {
+                apiResponse = await _contact.Create(_vmContact);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                apiResponse = new ApiResponse(false, ApiMessage.Error, null);
+            }
+            finally
+            {
+
+            }
+            return Ok(apiResponse);
+        }
+
+        //===|| Update
+        [HttpPut("[action]")]
+        public async Task<IActionResult> Update(VmContact _vmContact)
+        {
+            try
+            {
+                apiResponse = await _contact.Update(_vmContact);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                apiResponse = new ApiResponse(false, ApiMessage.Error, null);
+            }
+            finally
+            {
+
+            }
+            return Ok(apiResponse);
+        }
+
+        //===|| Status
+        [HttpPatch("[action]")]
+        public async Task<IActionResult> Status([FromBody] int Id, bool Status)
+        {
+            try
+            {
+                apiResponse = await _contact.Status(Id, Status);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                apiResponse = new ApiResponse(false, ApiMessage.Error, null);
+            }
+            finally
+            {
+
+            }
+            return Ok(apiResponse);
+        }
+
+        //===|| Delete
+        [HttpDelete("[action]")]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            try
+            {
+                apiResponse = await _contact.Delete(Id);                
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                apiResponse = new ApiResponse(false, ApiMessage.Error, null);
+            }
+            finally
+            {
+
+            }
+            return Ok(apiResponse);
+        }
     }
 }

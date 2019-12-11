@@ -71,7 +71,7 @@ namespace ContactManagerApp.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
+                    template: "{controller}/{action}/{id}");
             });
 
             //===|| UseSpa

@@ -1,3 +1,8 @@
 .main-section{
     min-height: 800px;
 }
+
+.form-check-input{
+    height: 20px;
+    width: 20px;
+}
