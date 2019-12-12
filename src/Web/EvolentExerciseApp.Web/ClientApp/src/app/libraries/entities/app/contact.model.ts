@@ -1,9 +1,9 @@
 export class ContactModel {
-    public Id: number;
-    public FirstName: string;
-    public LastName: string;
-    public City : string;
-    public Email: string;
-    public Phone: string;
-    public Status: boolean;
+    public id: number;
+    public firstName: string;
+    public lastName: string;
+    public city : string;
+    public email: string;
+    public phone: string;
+    public status: boolean;
 }

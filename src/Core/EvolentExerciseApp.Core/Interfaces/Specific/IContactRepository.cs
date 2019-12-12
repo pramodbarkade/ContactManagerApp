@@ -14,7 +14,7 @@ namespace ContactManagerApp.Core.Interfaces.Specific
         Task<VmContact> View(int Id);
         Task<ApiResponse> Create(VmContact _vmContact);
         Task<ApiResponse> Update(VmContact _vmContact);
-        Task<ApiResponse> Status(int Id, bool Status);
+        Task<ApiResponse> Status(VmContact _vmContact);
         Task<ApiResponse> Delete(int Id);      
     }
 }

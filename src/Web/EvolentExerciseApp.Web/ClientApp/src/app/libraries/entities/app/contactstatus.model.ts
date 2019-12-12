@@ -1,4 +1,4 @@
 export class ContactStatusModel {
-    public Id: number;   
-    public Status: boolean;
+    public id: number;   
+    public status: boolean;
 }

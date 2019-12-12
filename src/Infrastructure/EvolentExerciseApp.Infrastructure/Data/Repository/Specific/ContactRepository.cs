@@ -28,6 +28,7 @@ namespace ContactManagerApp.Infrastructure.Data.Repository.Specific
             {
                 contactList = await _dbContext.Contact.Select(a => new VmContact()
                 {
+                    Id = a.Id,
                     FirstName = a.FirstName,
                     LastName = a.LastName,
                     City = a.City,
@@ -54,6 +55,7 @@ namespace ContactManagerApp.Infrastructure.Data.Repository.Specific
             {
                 _vmContact = await _dbContext.Contact.Where(a => a.Id == Id).Select(a => new VmContact()
                 {
+                    Id = a.Id,
                     FirstName = a.FirstName,
                     LastName = a.LastName,
                     City = a.City,
@@ -137,15 +139,15 @@ namespace ContactManagerApp.Infrastructure.Data.Repository.Specific
             return apiResponse;
         }
 
-        public async Task<ApiResponse> Status(int Id, bool Status)
+        public async Task<ApiResponse> Status(VmContact _vmContact)
         {
             ApiResponse apiResponse;
             try
             {
-                var _contact = await _dbContext.Contact.Where(a => a.Id == Id).FirstOrDefaultAsync();
+                var _contact = await _dbContext.Contact.Where(a => a.Id == _vmContact.Id).FirstOrDefaultAsync();
                 if (_contact != null)
                 {
-                    _contact.Status = Status;
+                    _contact.Status = _vmContact.Status;
                     _contact.ModifyDate = DateTime.Now;
                     await _dbContext.SaveChangesAsync();
                     apiResponse = new ApiResponse(true, ApiMessage.Success, null);

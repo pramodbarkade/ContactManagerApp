@@ -89,7 +89,7 @@ namespace ContactManagerApp.Web.Controllers
 
         //===|| Update
         [HttpPut("[action]")]
-        public async Task<IActionResult> Update(VmContact _vmContact)
+        public async Task<IActionResult> Update([FromBody]VmContact _vmContact)
         {
             try
             {
@@ -109,11 +109,11 @@ namespace ContactManagerApp.Web.Controllers
 
         //===|| Status
         [HttpPatch("[action]")]
-        public async Task<IActionResult> Status([FromBody] int Id, bool Status)
+        public async Task<IActionResult> Status([FromBody] VmContact _vmContact)
         {
             try
             {
-                apiResponse = await _contact.Status(Id, Status);
+                apiResponse = await _contact.Status(_vmContact);
             }
             catch (Exception ex)
             {
@@ -128,7 +128,7 @@ namespace ContactManagerApp.Web.Controllers
         }
 
         //===|| Delete
-        [HttpDelete("[action]")]
+        [HttpDelete("[action]/{id}")]
         public async Task<IActionResult> Delete(int Id)
         {
             try

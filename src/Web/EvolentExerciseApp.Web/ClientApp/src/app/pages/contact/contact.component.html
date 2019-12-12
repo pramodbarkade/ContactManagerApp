@@ -1,9 +1,16 @@
 <!-- component html -->
 <div class="card mt-2" style="width: 100%;">
   <div class="card-body">
-    <h5 class="card-title">Contacts List</h5>
-    <button class="btn btn-outline-primary" (click)="addContact(addEditViewContactModel, 'lg', 'Add New Contact')"><i
-        class="fa fa-plus"></i>&nbsp;Add New Contact</button>
+
+    <div class="row mb-1">
+      <div class="col-md-6">
+        <h5 class="card-title">Contacts List</h5>
+      </div>
+      <div class="col-md-6 text-right">
+        <button class="btn btn-outline-primary"
+          (click)="addContact(addEditViewContactModel, 'lg', 'Add New Contact')"><i class="fa fa-plus"></i>&nbsp;Add Contact</button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-12">
         <table class="table">
@@ -44,15 +51,17 @@
               <td>{{ item.email || 'N/A' }}</td>
               <td>{{ item.phone || 'N/A' }}</td>
               <td>
-                <span
-                  class="badge badge-pill badge-{{ item.status ? 'success' : 'danger'}}">{{ item.status ? 'Active' : 'Inactive' }}</span>
+                <span class="badge badge-pill badge-{{ item.status ? 'success' : 'danger'}}"
+                  title="{{ item.status ? 'Active' : 'Inactive' }}"
+                  (click)="statusContact(statusContactModel, 'md', 'Status', item.id, item.status)"><i
+                    class="fa fa-{{ item.status ? 'check' : 'times'}}"></i>&nbsp;{{ item.status ? 'Active' : 'Inactive' }}</span>
               </td>
               <td>
                 <button type="button" class="btn btn-sm btn-outline-primary" title="View Contact"
-                  (click)="viewContact(addEditViewContactModel, 'lg', 'Add New Contact', item.id)"><i
+                  (click)="viewEditContact(addEditViewContactModel, 'lg', 'View Contact', item.id, 1)"><i
                     class="fa fa-search"></i></button>&nbsp;
                 <button type="button" class="btn btn-sm btn-outline-warning" title="Edit Contact"
-                  (click)="editContact(addEditViewContactModel, 'lg', 'Edit Contact', item.id)"><i
+                  (click)="viewEditContact(addEditViewContactModel, 'lg', 'Edit Contact', item.id, 2)"><i
                     class="fa fa-pencil"></i></button>&nbsp;
                 <button type="button" class="btn btn-sm btn-outline-danger" title="Delete Contact"
                   (click)="deleteContact(deleteContactModel, 'md', 'Delete Contact', item.id)"><i
@@ -125,17 +134,18 @@
               </div>
             </div>
             <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" (change)="statusChange($event)">
+              <input type="checkbox" class="form-check-input" (change)="statusChange($event)"
+                [checked]="this.contactForm.value.status == '1'">
               <label class="form-check-label">&nbsp;Active/InActive</label>
             </div>
           </div>
         </div>
       </fieldset>
     </div>
-    <div class="modal-footer">      
-        <ng-template [ngIf]="isFormMode != 0">      
-          <button type="submit" class="btn btn-outline-primary">Save</button>
-        </ng-template>
+    <div class="modal-footer">
+      <ng-template [ngIf]="isFormMode != 0">
+        <button type="submit" class="btn btn-outline-primary">Save</button>
+      </ng-template>
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close')">Close</button>
     </div>
 
@@ -150,13 +160,29 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <form *ngIf="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <div class="modal-body">
-      <h4><span class="badge badge-pill badge-danger">Are you sure want to delete this contact ?</span></h4>
-    </div>
-    <div class="modal-footer">
-      <button type="submit" class="btn btn-outline-danger">Delete</button>
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close')">Close</button>
-    </div>
-  </form>
+  <div class="modal-body">
+    <h4><span class="badge badge-pill badge-danger">Are you sure want to delete this contact ?</span></h4>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-danger" (click)="onDelete()">Delete</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close')">Close</button>
+  </div>
+</ng-template>
+
+<!-- Modal : Add New Contact -->
+<ng-template #statusContactModel let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ this.modalTitle }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h4><span class="badge badge-pill badge-warning"><i class="fa fa-warning"></i>&nbsp;Are you sure want to
+        {{ !this.isFormStatus ? 'Active' : 'Inactive' }} this contact ?</span></h4>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-danger" (click)="onStatus()">Update</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close')">Close</button>
+  </div>
 </ng-template>
