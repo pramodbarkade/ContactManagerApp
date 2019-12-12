@@ -26,6 +26,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{D3
 		C:\Users\Pramod\Desktop\ContactManagerAppDb.sql = C:\Users\Pramod\Desktop\ContactManagerAppDb.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screens", "screens", "{A94B552F-ECBB-4768-ADB7-1C852AF31B49}"
+	ProjectSection(SolutionItems) = preProject
+		docs\screens\angular_directory_structure.PNG = docs\screens\angular_directory_structure.PNG
+		docs\screens\project_directory_structure.PNG = docs\screens\project_directory_structure.PNG
+		docs\screens\screen_add.PNG = docs\screens\screen_add.PNG
+		docs\screens\screen_delete.PNG = docs\screens\screen_delete.PNG
+		docs\screens\screen_edit.PNG = docs\screens\screen_edit.PNG
+		docs\screens\screen_list.PNG = docs\screens\screen_list.PNG
+		docs\screens\screen_view.PNG = docs\screens\screen_view.PNG
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +66,7 @@ Global
 		{D2E4FFF4-4EF0-4555-96B2-ADD3C2922EF6} = {80494455-3A71-4EF9-B8A4-CCC3DAA04CDB}
 		{97BA8429-1A84-4FBE-A01B-83C1D6F32C1D} = {9DF91145-460A-456B-ADC2-4491DA53057C}
 		{054916B6-C128-47B4-BD3D-3C50054685E9} = {0950518C-84C8-4055-BDD1-B502B5706EA6}
+		{A94B552F-ECBB-4768-ADB7-1C852AF31B49} = {9B8D485E-0BE2-498D-A81F-8CCD6860A0CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C32B2A1D-FDEF-46F3-A750-8259E286BA92}
