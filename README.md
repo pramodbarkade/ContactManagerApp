@@ -7,8 +7,8 @@ Technology :
 4) Boostrap 4
 
 Project Directory:
-![Project Directory Screen](https://github.com/pramodbarkade/ContactManagerApp/blob/master/docs/screens/project_directory_structure.png)
+![Project Directory Screen](https://github.com/pramodbarkade/ContactManagerApp/blob/master/docs/screens/project_directory_structure.PNG)
 
 Angular Directory:
-![Project Directory Screen](https://github.com/pramodbarkade/ContactManagerApp/blob/master/docs/screens/project_directory_structure.png)
+![Project Directory Screen](https://github.com/pramodbarkade/ContactManagerApp/blob/master/docs/screens/project_directory_structure.PNG)
 
