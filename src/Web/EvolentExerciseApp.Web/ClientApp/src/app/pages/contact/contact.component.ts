@@ -256,6 +256,7 @@ console.log(_contactStatusModel);
   //===||
   addContact(content, size, title: string) {
     this.contactForm.reset();  
+    this.isFormSubmit = false;
     this.isFormMode = 1;
     this.isFormId = 0;
     this.modalOpen(content, size, title);
@@ -263,7 +264,8 @@ console.log(_contactStatusModel);
 
   //===||
   viewEditContact(content, size, title: string, id: number, mode : number) {
-    this.contactForm.reset();      
+    this.contactForm.reset(); 
+    this.isFormSubmit = false;     
     this.isFormMode = mode;
     this.isFormId = id;
     this.loadData(content, size, title, id); 
@@ -271,6 +273,8 @@ console.log(_contactStatusModel);
 
   //===||
   deleteContact(content, size, title: string, id: number) {
+    this.contactForm.reset(); 
+    this.isFormSubmit = false;
     this.isFormMode = 3;
     this.isFormId = id;
     this.modalOpen(content, size, title);
