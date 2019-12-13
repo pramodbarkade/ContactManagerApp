@@ -27,8 +27,12 @@ Angular Directory:
 Output Screens:
 --------------------------------------------------------------------------------------
 ![List](https://github.com/pramodbarkade/ContactManagerApp/blob/master/docs/screens/screen_list.PNG)
+
 ![List](https://github.com/pramodbarkade/ContactManagerApp/blob/master/docs/screens/screen_add.PNG)
+
 ![List](https://github.com/pramodbarkade/ContactManagerApp/blob/master/docs/screens/screen_edit.PNG)
+
 ![List](https://github.com/pramodbarkade/ContactManagerApp/blob/master/docs/screens/screen_delete.PNG)
+
 ![List](https://github.com/pramodbarkade/ContactManagerApp/blob/master/docs/screens/screen_status.PNG)
 
