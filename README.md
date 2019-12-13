@@ -5,7 +5,7 @@ Architecture, Design Pattern and Principles :
 2) Dependency Injection
 3) SOLID Principles
 4) DRY Principle
-5) KISS Principl
+5) KISS Principle
 
 Technology :
 1) Asp.Net Core 2.1
